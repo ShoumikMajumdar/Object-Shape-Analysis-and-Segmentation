@@ -10,9 +10,6 @@
     height="120"></a>
 </center>
 
-<h1>Object Shape Analysis and Segmentation</h1>
-
-
 <div class="main-body">
   <hr>
   <h2> Binary Image Analysis </h2>
