@@ -2,7 +2,7 @@ import cv2 as cv
 import numpy as np
 import os
 
-
+#Load images from folder
 def load_images_from_folder(folder):
     images = []
     for filename in os.listdir(folder):
@@ -12,7 +12,7 @@ def load_images_from_folder(folder):
             images.append(img)
     return images
 
-
+#Convert to grayscale and absolute thresholding
 def preprocess(img):
     img = cv.cvtColor(img,cv.COLOR_BGR2GRAY)
     _, img = cv.threshold(img,80,255,cv.THRESH_BINARY)

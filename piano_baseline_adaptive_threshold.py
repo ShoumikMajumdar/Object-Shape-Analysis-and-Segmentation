@@ -2,7 +2,7 @@ import cv2 as cv
 import numpy as np
 import os
 
-
+##Load images and resize them
 def load_images_from_folder(folder):
     images = []
     for filename in os.listdir(folder):
@@ -12,14 +12,14 @@ def load_images_from_folder(folder):
             images.append(img)
     return images
 
-
+#Convert to grayscale and adptive thresholding
 def preprocess(img):
     img = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
     img = cv.adaptiveThreshold(img, 255, cv.ADAPTIVE_THRESH_MEAN_C, cv.THRESH_BINARY, 11, 2)
    # _, img = cv.threshold(img, 40, 255, cv.THRESH_BINARY)
     return img
 
-
+# helper function to find contours
 def skin_color(img):
     for i in range(img.shape[0]):
         for j in range(img.shape[1]):

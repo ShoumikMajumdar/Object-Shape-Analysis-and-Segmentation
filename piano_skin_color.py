@@ -3,6 +3,7 @@ import numpy as np
 import os
 
 
+##Load images and resize them
 def load_images_from_folder(folder):
     images = []
     for filename in os.listdir(folder):
@@ -13,12 +14,14 @@ def load_images_from_folder(folder):
     return images
 
 
+#Convert to grayscale
 def preprocess(img):
     img = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
    # _, img = cv.threshold(img, 40, 255, cv.THRESH_BINARY)
     return img
 
 
+# Thresholding based on skin color.
 def skin_color(img):
     for i in range(img.shape[0]):
         for j in range(img.shape[1]):
@@ -32,6 +35,7 @@ def skin_color(img):
     return img
 
 
+# helper function to find contours
 def find_contours(img):
     _, contours, hierarchy = cv.findContours(img, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
     return contours
@@ -44,11 +48,10 @@ def main():
     cv.imshow("Original Image", img)
     cv.imwrite("Piano_frame.jpg",img)
     mean_frame = np.mean(dataset, axis=0).astype(dtype=np.uint8)
-
+    
 
     diff = cv.subtract(img, mean_frame)
     sk = skin_color(diff)
-    #cv.imshow("Skin", sk)
     preprocessed = preprocess(sk)
 
     split = preprocessed[:, :350]

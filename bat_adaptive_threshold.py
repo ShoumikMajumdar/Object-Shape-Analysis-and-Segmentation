@@ -3,7 +3,7 @@ import numpy as np
 import os
 import math
 
-
+#Load images from folder
 def load_images_from_folder(folder):
     images = []
     for filename in os.listdir(folder):
@@ -14,6 +14,7 @@ def load_images_from_folder(folder):
     return images
 
 
+#Convert to grayscale and adaptinve thresholding
 def preprocess(img):
     img = cv.cvtColor(img,cv.COLOR_BGR2GRAY)
     #_, img = cv.threshold(img,80,255,cv.THRESH_BINARY)
