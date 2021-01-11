@@ -66,7 +66,6 @@
   I tested our implementation on the four sample images.The results are in the table below.
   </p>
   <table>
-
     <tr>
       <td>Examples</td><td> Source </td><td> Labeling </td><td> Boundary Following </td> <td> Skeleton </td>
     </tr>
@@ -76,7 +75,6 @@
       <td> <img src="images/hand1_flood.jpg" width="150" height="150"></td>
       <td> <img src="images/hand1_boundary.jpg" width="150" height="150"></td>
       <td> <img src="images/hand1_skeleton.jpg" width="150" height="150"></td>
-
     </tr>
     <tr>
       <td> Example 2</td>
@@ -91,7 +89,6 @@
       <td> <img src="images/Hand3_flood.jpg" width="150" height="150"> </img></td>
       <td> <img src="images/hand3_boundary.jpg" width="150" height="150"> </img></td>
       <td> <img src="images/hand3_skeleton.jpg" width="150" height="150"> </img></td>
-
     </tr>
     <tr>
       <td> Example 4</td>
