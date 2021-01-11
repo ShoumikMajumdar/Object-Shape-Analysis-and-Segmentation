@@ -159,7 +159,6 @@
       <td> Piano </td>
       <td> <img src="images/Piano_frame.jpg" width="400" height="280"> </img></td>
       <td> <img src="images/Piano_hands.jpg" width="400" height="280">  </img></td>
-
     </tr>
     <tr>
       <td> Bat </td>
@@ -170,7 +169,6 @@
       <td> Pedestrian </td>
       <td> <img src="images/Pedestrian_frame.jpg" width="400" height="280"></td>
       <td> <img src="images/Pedestrian_bounding.jpg" width="400" height="280"></td>
-
     </tr>
   </table>
 
