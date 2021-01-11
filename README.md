@@ -4,11 +4,6 @@
 
 
 <body>
-<center>
-  <a href="https://www.bu.edu"><img border="0"
-    src="https://www.cs.bu.edu/fac/betke/images/bu-logo.gif" width="119"
-    height="120"></a>
-</center>
 
 <div class="main-body">
   <hr>
@@ -16,9 +11,9 @@
 
   <h3> Problem Definition </h3>
   <p>
-  Given a binary image (e.g. hands or tumor images), we try to find connected
+  Given a binary image (e.g. hands or tumor images), I try to find connected
   components and label each object. We try to detect boundary and skeleton of
-  an object. We also calculate object area, orientation, circularity, and
+  an object. I also calculate object area, orientation, circularity, and
   compactness for each object.
   </p>
 
@@ -28,7 +23,7 @@
     <p>
     Connected Component Labeling:  Scan every pixel in the image, find a pixel
     which is not background. After finding the pixel, we label the pixel as 1 at
-    first. Then, we push the pixel in the stack and find neighbors whether they
+    first. Then, I push the pixel in the stack and find neighbors whether they
     have same intensity value. If so, the neighbor also is pushed into stack and
     assigned the same label. Pop an item from the stack and keep search for
     neighbor’s of neighbors. After stack is empty, we increase the label count
@@ -37,20 +32,20 @@
     </li>
     <li>
     <p>
-    We first added a padding of size 1px to the original image in order to be
+    I first added a padding of size 1px to the original image in order to be
     able to progress with the boundary following algorithm discussed in class.
-    We implemented the boundary following algorithm by finding the first black
+    I implemented the boundary following algorithm by finding the first black
     pixel and start following the boundary.
     </p>
     </li>
     <li>
     <p>
-    After we labeled all the objects from sequential connected component
-    labeling, we passed the set of objects to compute its area by counting the
+    After I labeled all the objects from sequential connected component
+    labeling, I passed the set of objects to compute its area by counting the
     number of pixels, orientation by computing Emin and Emax.
     </p>
     <p>
-    We then compute the circularity by Emin/Emax. For compactness, we run the
+    I then compute the circularity by Emin/Emax. For compactness, I run the
     boundary following algorithm to get the perimeter for any object. Then the
     compactness is computed.
     </p>
@@ -58,9 +53,9 @@
     <li>
     <p>
     Scan every pixel in the image, find a pixel which is not background. After
-    finding the pixel, we compute the closest distance from any background
+    finding the pixel, I compute the closest distance from any background
     pixels. Then, we compare this distance with distances from it neighbor’s to
-    background. If it is bigger than that of neighbor’s, we classify it as a
+    background. If it is bigger than that of neighbor’s, I classify it as a
     skeleton pixels.
     </p>
     </li>
@@ -68,7 +63,7 @@
   <h3> Experiments and Results </h3>
 
   <p>
-  We tested our implementation on the four sample images.The results are in the table below.
+  I tested our implementation on the four sample images.The results are in the table below.
   </p>
   <table>
 
@@ -107,7 +102,7 @@
     </tr>
   </table>
   <p>
-  For are orientation an circularity,we got the following results:
+  For are orientation an circularity,I got the following results:
   <table>
   <tr><td>Image</td><td>Results</td></tr>
   <tr><td><img src="images/hand1.png" width="150" height="150"></td><td>Perimeter = 1316.53108 Area = 30095.5 Compactness = 57.5918 Orientation = -40.1668 Circularity = 0.814714</td></tr>
@@ -120,16 +115,16 @@
 
   <h3> Discussion </h3>
   <p>
-  For preprocessing, we use dilation and erosion to remove noises and filling
+  For preprocessing, I use dilation and erosion to remove noises and filling
   holes in an object. Our labeling algorithm becomes slow when there are too many
-  objects in the image. So, we filter small objects and erosions.
+  objects in the image. So, I filter small objects and erosions.
   </p>
 
   <hr>
   <h2> Segmentation </h2>
   <h3> Problem Definition </h3>
   <p>
-  Given frames in a video, we try to detect, segment and track certain object
+  Given frames in a video, I try to detect, segment and track certain object
   in the frames (e.g. Task 1: hand, task 2: bat, or task 3: people) with
   methods we learned from classes.
   </p>
@@ -138,26 +133,25 @@
   <ol>
     <li>
     <p>
-    For the piano dataset,we first found out the mean frame of the image set. Then we subtracted each frame
-    from the mean frame . This left us with only the parts with movement in the image. Now to separate the hands
-    from the rest of the part we use thresholding and skin color detection.Now we know that the hands are on the left
-    part of the image.So we can just focus on the left part and use the cv2 contour function. Now we take the largest
+    For the piano dataset,I first found out the mean frame of the image set. Then I subtracted each frame
+    from the mean frame . This left me with only the parts with movement in the image. Now to separate the hands
+    from the rest of the part I use thresholding and skin color detection.Now I know that the hands are on the left
+    part of the image.So I can just focus on the left part and use the cv2 contour function. Now I take the largest
     two contours (which denote the hand) and draw bounding boxes around them.
     </p>
     </li>
     <li>
     <p>
-    For the bat dataset,we start with grayscaling the image. After that we apply adaptive thresholding to the image to identify the
-    bats present in the image.The we use the opencv contour method and drew bouding boxes around contours with large enough area. To identify the status of the flight/ wing position we use the
-    circularity and compactness.
+    For the bat dataset,we start with grayscaling the image. After that I apply adaptive thresholding to the image to identify the
+    bats present in the image.The I use the opencv contour method and drew bouding boxes around contours with large enough area. To identify the status of the flight/ wing position I use the circularity and compactness.
     </p>
     </li>
     <li>
     <p>
-    To detect people in the videos we followed frame subtraction approach.We then use the mean frame
+    To detect people in the videos I followed frame subtraction approach. I then use the mean frame
     for background subtraction.After this we used a similar thresholding ,specifically in the 60-255 range. This was followed
-    by opening the image.We then used opencv's contour function and cap the area limit on the contours we accept. We found the appropriate through
-    experimentation. We then just draw bounding boxes around the remaining contours.
+    by opening the image. I then used opencv's contour function and cap the area limit on the contours we accept. I found the appropriate through
+    experimentation. I then just draw bounding boxes around the remaining contours.
     <table>
     <br>
     <br>
@@ -187,30 +181,30 @@
   <p>
   The piano dataset is a bit challenging because of the changes in lighting and shadows within the frames.
   Also the frames are not consecutive so straightforward background subtraction is not very feasible. To get around
-  these hurdles, first we calculated the mean frame of the image set. After that we subtract each frame from the mean frame.
-  This removes all the static part of the images and what we are left is are some parts of the piano and pianist. Now to separate out
-  the hands , we used skin color detection using the RGB thersholds given in the lab session. After that we could use contouring to find the
+  these hurdles, first I calculated the mean frame of the image set. After that I subtract each frame from the mean frame.
+  This removes all the static part of the images and what is left are some parts of the piano and pianist. Now to separate out
+  the hands , I used skin color detection using the RGB thersholds given in the lab session. After that I could use contouring to find the
   hands in the left part of the image.
   </p>
   <p>
   In the bat dataset, as background changes, it is better to use adpative
   thresholing. If bat is too small or far from a camera, it is hard to tell if
-  it is unfolded and there are multiple bats in the region.  We set threshold
+  it is unfolded and there are multiple bats in the region.  I set threshold
   for determining if it is folded emprically with circularity, so that the
   system does not detect the foldness very well for small obejcts
   </p>
   <p>
-  In the pedestrian dataset, we tried out multiple models to find the bounding
+  In the pedestrian dataset, I tried out multiple models to find the bounding
   boxs for people in all the frames. However the best approach turned out to be straightforward frame subtraction.
-  We subtracted each frame from mean frame and found contours on the resulting image. We still could not get around the
+  I subtracted each frame from mean frame and found contours on the resulting image. I still could not get around the
   people being occluded by the pole though as it's not present in the mean frame.Drawing bouding boxes on contours that are big enough work very well.
   </p>
   <hr>
   <h2> Conclussion </h2>
   <p>
-  We first implemented our own version of getting the first/second moments and
-  circularity of objects. We implemented the sequential labeling and boundary
-  following algorithm. We applied these algorithms and methods to the given
+  I first implemented our own version of getting the first/second moments and
+  circularity of objects. I implemented the sequential labeling and boundary
+  following algorithm. I applied these algorithms and methods to the given
   four images.
   </p>
   <p>
@@ -218,15 +212,15 @@
   on the left side of the image post thersholding and subtraction may not generalize but works well for this.
   </p>
   <p>
-  For the bat data set, we found that adaptive thresholding works very well on
-  the chages of backgrounds. We detected most of bats except very small bats.
-  We also successfully detect whether it is folded with a appropriate threshold
+  For the bat data set, I found that adaptive thresholding works very well on
+  the chages of backgrounds. I detected most of bats except very small bats.
+  I also successfully detect whether it is folded with a appropriate threshold
   on circularity, and regions where multiple bats exist.
   </p>
   <p>
-  For the person detector task, we used background subtraction and are able to
+  For the person detector task, I used background subtraction and are able to
   identify the majority of people given no occlusion. Occlusion may still
-  majorly affect the performance of the model even with our fine tuned
+  majorly affect the performance of the model even with my fine tuned
   parameters.
   </p>
   <hr>
